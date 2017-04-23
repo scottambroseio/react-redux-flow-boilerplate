@@ -1,0 +1,102 @@
+{
+  "name": "react-redux-flow-boilerplate",
+  "version": "1.0.0",
+  "description": "React / Redux / Flux Boilerplate Project",
+  "repository": "https://github.com/scottrangerio/react-redux-flow-boilerplate.git",
+  "author": "Scott Ranger <millenniumnight@googlemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.9.0",
+    "eslint-watch": "^3.1.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "favicons-webpack-plugin": "^0.0.7",
+    "file-loader": "^0.11.1",
+    "flow-bin": "^0.44.2",
+    "html-webpack-plugin": "^2.28.0",
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0",
+    "normalizr": "^3.2.2",
+    "npm-run-all": "^4.0.2",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "^15.5.4",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack-merge": "^4.1.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "scripts": {
+    "postinstall": "npm run build",
+    "dev:start": "run-p lint:watch test:client:watch test:server:watch dev:server:watch",
+    "start": "npm run prod:server",
+    "lint": "eslint src __mocks__",
+    "lint:watch": "nodemon --watch src/client --watch src/server --watch __mocks__ --exec npm run lint",
+    "test": "npm run test:client && npm run test:server",
+    "test:watch": "run-p test:client:watch test:server:watch",
+    "test:client": "jest --config src/client/.jest.json",
+    "test:server": "jest --config src/server/.jest.json",
+    "test:client:watch": "nodemon --watch src/client -e js,jsx,json --exec npm run test:client",
+    "test:server:watch": "nodemon --watch src/server -e js,jsx,json --exec npm run test:server",
+    "build:client": "webpack -p --config webpack.config.prod.js",
+    "build:server": "babel src/server -d dist/server --ignore __mocks__,__tests__",
+    "prebuild": "npm run clean && npm run lint && npm run test",
+    "build": "npm run build:client && npm run build:server",
+    "clean": "rimraf dist/*",
+    "dev:server": "better-npm-run dev:server",
+    "prod:server": "better-npm-run prod:server",
+    "dev:server:watch": "nodemon --watch src/server --exec npm run dev:server",
+    "prod:server:watch": "nodemon --watch dist/server --exec npm run prod:server"
+  },
+  "betterScripts": {
+    "dev:server": {
+      "command": "babel-node src/server/index.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "prod:server": {
+      "command": "node dist/server/index.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "dependencies": {
+    "better-npm-run": "^0.0.15",
+    "graphql": "^0.9.3",
+    "koa": "^2.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-graphql": "^0.7.0",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^3.0.0",
+    "koa-static-server": "^1.0.0",
+    "koa-webpack-dev-middleware": "^1.4.5",
+    "koa-webpack-hot-middleware": "^1.0.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.4.1"
+  }
+}

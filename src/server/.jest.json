@@ -1,0 +1,7 @@
+{
+  "roots": [
+    "<rootDir>/__mocks__",
+    "<rootDir>/src/server"
+  ],
+  "testEnvironment": "node"
+}

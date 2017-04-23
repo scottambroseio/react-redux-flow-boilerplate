@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "env": {
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "jest"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "no-tabs": "off",
+    "linebreak-style": [
+      "error",
+      "windows"
+    ]
+  }
+}
