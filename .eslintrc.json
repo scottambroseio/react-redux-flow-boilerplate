@@ -1,7 +1,7 @@
 {
   "root": true,
   "env": {
-    "jest": false
+    "jest": true
   },
   "extends": [
     "airbnb",
