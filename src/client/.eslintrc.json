@@ -1,8 +1,12 @@
 {
-  "env": {
-    "browser": true
-  },
-  "rules": {
-    "react/jsx-filename-extension": "off"
-  }
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "react/jsx-filename-extension": "off",
+        "react/jsx-indent": [
+            "error",
+            "tab"
+        ]
+    }
 }

@@ -3,7 +3,7 @@
 const use = jest.fn();
 
 const koa = jest.fn(() => ({
-	use,
+	use
 }));
 
 export default koa;
